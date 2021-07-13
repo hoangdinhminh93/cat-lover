@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:page="clr-namespace:CatLover.Pages"
+                      xmlns:viewModel="clr-namespace:CatLover.ViewModels"
+                      x:TypeArguments="viewModel:BreedDetailViewModel"
+                      x:Class="CatLover.Pages.BreedDetailPage">
+    <StackLayout>
+        <Image Source="{Binding CatBreed.Image.Url}" />
+        <Label Text="{Binding CatBreed.Description}" HorizontalOptions="CenterAndExpand" Margin="20,8" />
+    </StackLayout>
+</page:BaseContentPage>
