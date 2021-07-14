@@ -22,7 +22,7 @@ namespace CatLover.Pages
         public BaseContentPage()
         {
             // Create ViewModel
-            ViewModel = (T)Activator.CreateInstance(typeof(T));
+            ViewModel = App.Container.Resolve<T>();
             ViewModel.Initialize();
 
             // Init ContentPage

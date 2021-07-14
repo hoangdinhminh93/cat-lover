@@ -6,7 +6,10 @@ namespace CatLover.Http
 {
     public partial class DataClient
     {
-        public async Task<List<CatBreed>> GetAllBreads()
+        /// <summary>
+        /// Get all cat breeds.
+        /// </summary>
+        public async Task<List<CatBreed>> GetAllCatBreeds()
         {
             return await GetAsync<List<CatBreed>>("breeds");
         }

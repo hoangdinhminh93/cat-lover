@@ -1,26 +1,26 @@
 ﻿using CatLover.Extensions;
 using CatLover.Http;
 using CatLover.Models;
+using CatLover.Services;
 using System.Collections.ObjectModel;
 
 namespace CatLover.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        private ICatService catService;
+
+        public MainViewModel(ICatService catService)
+        {
+            this.catService = catService;
+        }
+
         public ObservableCollection<CatBreed> CatBreeds { get; set; } = new ObservableCollection<CatBreed>();
 
-        public override async void OnAppearing()
+        public override void OnAppearing()
         {
             base.OnAppearing();
-            var data = await DataClient.Create().GetAllBreads();
-            if (data != null)
-            {
-                CatBreeds = data.ToObservableCollection();
-            }
-            else
-            {
-                CatBreeds.Clear();
-            }
+            CatBreeds = catService.SearchAllBreeds().ToObservableCollection();
         }
     }
 }
