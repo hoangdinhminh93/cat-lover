@@ -7,6 +7,15 @@
                       x:Class="CatLover.Pages.BreedDetailPage">
     <StackLayout>
         <Image Source="{Binding CatBreed.Image.Url}" />
+        <Label x:Name="ageLabel" Margin="20,8">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Age: " />
+                    <Span Text="{Binding CatBreed.Age}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
         <Label Text="{Binding CatBreed.Description}" HorizontalOptions="CenterAndExpand" Margin="20,8" />
+        <Button Text="Increase Age" Clicked="OnButtonClicked" />
     </StackLayout>
 </page:BaseContentPage>

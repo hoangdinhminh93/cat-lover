@@ -18,6 +18,16 @@ namespace CatLover.Pages
         {
             InitializeComponent();
             ViewModel.CatBreed = breed;
+            ageLabel.PropertyChanged += (o, e) => 
+            {
+                if (e.PropertyName == Label.FormattedTextProperty.PropertyName)
+                    System.Diagnostics.Debug.WriteLine("TextChanged");
+            };
+        }
+
+        private void OnButtonClicked(object sender, EventArgs e)
+        {
+            ViewModel.CatBreed.Age += 1;
         }
     }
 }
